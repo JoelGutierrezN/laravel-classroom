@@ -4,18 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Admin extends Model {
     use SoftDeletes, HasFactory;
-
-    protected $table = 'admins';
-
-    protected $connection = 'mysql';
-
-    protected $primaryKey = 'id';
-
-    public $timestamps = true;
 
     protected $guarded = [];
     protected $hidden = [];
@@ -41,7 +36,11 @@ class Admin extends Model {
         ];
     }
 
-    public const CREATED_AT = 'created_at';
-    public const UPDATED_AT = 'updated_at';
-    public const DELETED_AT = 'deleted_at';
+    public function user(): BelongsTo {
+        return $this->belongsTo(User::class);
+    }
+
+    public function apartments(): HasMany {
+        return $this->hasMany(Apartment::class);
+    }
 }

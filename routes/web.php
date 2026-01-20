@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ApartmentController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -7,8 +8,10 @@ use Illuminate\Support\Facades\Route;
 //    return view('test');
 //});
 
-Route::view('/', 'welcome')
-    ->name('home');
+//Route::view('/', 'welcome')
+//    ->name('home');
+
+Route::get('/', [ApartmentController::class, 'index'])->name('home');
 
 Route::view('/contacto', 'test')
     ->name('test');
