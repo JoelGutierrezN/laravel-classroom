@@ -1,4 +1,4 @@
-@props(['title', 'route' => 'home']);
+@props(['title', 'route' => 'home'])
 
 <a href="{{ route($route) }}"
    class="border-transparent text-[#706f6c] dark:text-[#A1A09A] hover:border-black

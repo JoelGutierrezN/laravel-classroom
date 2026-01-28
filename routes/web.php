@@ -11,7 +11,18 @@ use Illuminate\Support\Facades\Route;
 //Route::view('/', 'welcome')
 //    ->name('home');
 
-Route::get('/', [ApartmentController::class, 'index'])->name('home');
+Route::redirect('/', '/apartments', 301)->name('home');
+
+Route::get('/apartments', [ApartmentController::class, 'index'])
+    ->name('apartments.index');
+
+Route::get('/apartments/crear', [ApartmentController::class, 'create'])
+    ->name('apartments.create');
+
+Route::post('/apartments', [ApartmentController::class, 'store'])
+    ->name('apartments.store');
+
+
 
 Route::view('/contacto', 'test')
     ->name('test');

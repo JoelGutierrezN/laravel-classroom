@@ -6,10 +6,10 @@
                     <x-app-logo />
                 </div>
                 <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
-                    <x-navlink route="home" title="Home" />
+                    <x-navlink route="apartments.index" title="Home" />
                     <x-navlink route="test" title="Contacto" />
                     <x-navlink route="about" title="About" />
-                    <x-navlink title="Services" />
+                    <x-navlink route="home" title="Services" />
                 </div>
             </div>
         </div>
